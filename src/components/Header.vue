@@ -11,10 +11,12 @@
       width="40"
     />
     <v-container class="filter-menu d-flex justify-center pa-0">
-      <FilterButton />
-      <FilterButton />
-      <FilterButton />
-      <FilterButton />
+      <FilterButton :title="'All'" />
+      <FilterButton
+        v-for="category in extractedCategories"
+        v-bind:key="category"
+        :title="category"
+      />
     </v-container>
     <Search />
   </v-app-bar>
@@ -28,6 +30,14 @@ export default {
   components: {
     FilterButton,
     Search
+  },
+  props: ["items"],
+  computed: {
+    extractedCategories() {
+      return this.items
+        .map(a => a.category)
+        .filter((a, b, c) => c.indexOf(a) == b);
+    }
   }
 };
 </script>
