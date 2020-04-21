@@ -1,5 +1,5 @@
 <template>
-  <v-btn class="ma-2" tile outlined>Category</v-btn>
+  <v-btn class="pa-0 ma-0" tile outlined>Category</v-btn>
 </template>
 
 <script>

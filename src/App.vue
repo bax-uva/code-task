@@ -1,8 +1,12 @@
 <template>
   <v-app>
     <Header />
-    <v-content>
-      <Transactions />
+    <v-content class="d-flex align-center">
+      <v-container class="d-flex justify-space-around align-center">
+        <Transactions />
+        <Transactions />
+        <Transactions />
+      </v-container>
     </v-content>
   </v-app>
 </template>

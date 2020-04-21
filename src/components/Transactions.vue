@@ -1,6 +1,8 @@
 <template>
-  <v-card class="mx-auto" max-width="344" outlined>
-    <v-card-title>Transactions type</v-card-title>
+  <v-card style="border:1px solid black;" tile outlined>
+    <v-card-title style="border-bottom:1px solid black;"
+      >Transactions type</v-card-title
+    >
     <ItemList />
     <v-card-actions>
       <AddButton />

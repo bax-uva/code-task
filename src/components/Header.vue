@@ -1,15 +1,21 @@
 <template>
-  <v-app-bar class="d-flex justify-md-space-between dark dense">
+  <v-app-bar
+    flat
+    class="header ma-0 pa-0 d-flex flex-row justify-space-around align-center"
+    style="background-color: white; border-bottom: 1px solid black;"
+  >
     <v-img
       alt="Logo"
       contain
       src="https://source.unsplash.com/kxkXVlNL7H0/1000"
-      transition="scale-transition"
       width="40"
     />
-    <div class="filter-bar">
+    <v-container class="filter-menu d-flex justify-center pa-0">
       <FilterButton />
-    </div>
+      <FilterButton />
+      <FilterButton />
+      <FilterButton />
+    </v-container>
     <Search />
   </v-app-bar>
 </template>
