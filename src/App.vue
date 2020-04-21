@@ -3,9 +3,21 @@
     <Header :items="items" />
     <v-content class="d-flex align-center">
       <v-container class="d-flex justify-space-around align-center">
-        <Transactions />
-        <Transactions />
-        <Transactions />
+        <Transactions v-show="chosenFilter == 'offers'" :category="'offers'" />
+        <Transactions
+          v-show="chosenFilter == 'incomes'"
+          :category="'incomes'"
+        />
+        <Transactions
+          v-show="chosenFilter == 'outcomes'"
+          :category="'outcomes'"
+        />
+        <Transactions
+          v-show="chosenFilter == 'all'"
+          v-bind:key="category"
+          v-for="category in categories"
+          :category="category"
+        />
       </v-container>
     </v-content>
   </v-app>
@@ -22,8 +34,12 @@ export default {
     Header,
     Transactions
   },
-  data: () => ({
-    items
-  })
+  data: () => {
+    return {
+      items,
+      chosenFilter: "all",
+      categories: ["offers", "incomes", "outcomes"]
+    };
+  }
 };
 </script>
