@@ -13,7 +13,7 @@
     <v-container class="filter-menu d-flex justify-center pa-0">
       <FilterButton :title="'all'" />
       <FilterButton
-        v-for="category in extractedCategories"
+        v-for="category in categories"
         v-bind:key="category"
         :title="category"
         @category-clicked="updateCategory(category)"
@@ -32,14 +32,7 @@ export default {
     FilterButton,
     Search
   },
-  props: ["items"],
-  computed: {
-    extractedCategories() {
-      return this.items
-        .map(a => a.category)
-        .filter((a, b, c) => c.indexOf(a) == b);
-    }
-  },
+  props: ["categories"],
   methods: {
     updateCategory(category) {
       this.$emit("category-filter", category);

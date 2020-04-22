@@ -3,7 +3,13 @@
     <v-card-title style="border-bottom:1px solid black;">{{
       category
     }}</v-card-title>
-    <ItemList />
+    <ListItem
+      v-for="(item, index) in filteredItems"
+      :item="item.id"
+      :index="index"
+      :cat="item.category"
+      v-bind:key="item.id"
+    />
     <v-card-actions>
       <AddButton />
       <ShowAllButton />
@@ -12,17 +18,22 @@
 </template>
 
 <script>
-import ItemList from "./ItemList";
+import ListItem from "./ListItem";
 import AddButton from "./AddButton";
 import ShowAllButton from "./ShowAllButton";
 
 export default {
   name: "Transactions",
   components: {
-    ItemList,
+    ListItem,
     AddButton,
     ShowAllButton
   },
-  props: ["category"]
+  props: ["category", "items"],
+  computed: {
+    filteredItems() {
+      return this.items.filter(a => a.category == this.category);
+    }
+  }
 };
 </script>

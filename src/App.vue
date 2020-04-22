@@ -1,22 +1,14 @@
 <template>
   <v-app>
-    <Header :items="items" @category-filter="updateCategory" />
+    <Header :categories="categories" @category-filter="updateCategory" />
     <v-content class="d-flex align-center">
       <v-container class="d-flex justify-space-around align-center">
-        <Transactions v-show="chosenFilter == 'offers'" :category="'offers'" />
         <Transactions
-          v-show="chosenFilter == 'incomes'"
-          :category="'incomes'"
-        />
-        <Transactions
-          v-show="chosenFilter == 'outcomes'"
-          :category="'outcomes'"
-        />
-        <Transactions
-          v-show="chosenFilter == 'all'"
+          v-show="chosenFilter == category"
           v-bind:key="category"
           v-for="category in categories"
           :category="category"
+          :items="items"
         />
       </v-container>
     </v-content>
@@ -38,13 +30,21 @@ export default {
     return {
       items,
       chosenFilter: " ",
-      categories: ["offers", "incomes", "outcomes"]
+      categories: []
     };
   },
   methods: {
+    extractCategories() {
+      this.categories = items
+        .map(a => a.category)
+        .filter((a, b, c) => c.indexOf(a) == b);
+    },
     updateCategory(currCategory) {
       this.chosenFilter = currCategory;
     }
+  },
+  created() {
+    this.extractCategories();
   }
 };
 </script>
