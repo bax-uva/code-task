@@ -4,15 +4,14 @@
       category
     }}</v-card-title>
     <ListItem
-      v-for="(item, index) in filteredItems"
+      v-for="item in filteredItems.slice(0, 3)"
       :item="item.id"
-      :index="index"
       :cat="item.category"
       v-bind:key="item.id"
     />
     <v-card-actions>
-      <AddButton />
-      <ShowAllButton />
+      <AddButton :category="category" />
+      <ShowAllButton :category="category" :filteredItems="filteredItems" />
     </v-card-actions>
   </v-card>
 </template>
