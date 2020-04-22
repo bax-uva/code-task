@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <Header :items="items" />
+    <Header :items="items" @category-filter="updateCategory" />
     <v-content class="d-flex align-center">
       <v-container class="d-flex justify-space-around align-center">
         <Transactions v-show="chosenFilter == 'offers'" :category="'offers'" />
@@ -37,9 +37,14 @@ export default {
   data: () => {
     return {
       items,
-      chosenFilter: "all",
+      chosenFilter: " ",
       categories: ["offers", "incomes", "outcomes"]
     };
+  },
+  methods: {
+    updateCategory(currCategory) {
+      this.chosenFilter = currCategory;
+    }
   }
 };
 </script>

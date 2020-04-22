@@ -11,11 +11,12 @@
       width="40"
     />
     <v-container class="filter-menu d-flex justify-center pa-0">
-      <FilterButton :title="'All'" />
+      <FilterButton :title="'all'" />
       <FilterButton
         v-for="category in extractedCategories"
         v-bind:key="category"
         :title="category"
+        @category-clicked="updateCategory(category)"
       />
     </v-container>
     <Search />
@@ -37,6 +38,11 @@ export default {
       return this.items
         .map(a => a.category)
         .filter((a, b, c) => c.indexOf(a) == b);
+    }
+  },
+  methods: {
+    updateCategory(category) {
+      this.$emit("category-filter", category);
     }
   }
 };
