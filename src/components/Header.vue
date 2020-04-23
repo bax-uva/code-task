@@ -11,12 +11,12 @@
       width="40"
     />
     <v-container class="filter-menu d-flex justify-center pa-0">
-      <FilterButton :title="'all'" />
+      <FilterButton :title="'all'" @category-clicked="updateCategory" />
       <FilterButton
         v-for="category in categories"
         v-bind:key="category"
         :title="category"
-        @category-clicked="updateCategory(category)"
+        @category-clicked="updateCategory"
       />
     </v-container>
     <Search />

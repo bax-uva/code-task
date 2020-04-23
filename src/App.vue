@@ -4,7 +4,7 @@
     <v-content class="d-flex align-center">
       <v-container class="d-flex justify-space-around align-center">
         <Transactions
-          v-show="chosenFilter == category"
+          v-show="chosenFilter == category || chosenFilter == 'all'"
           v-bind:key="category"
           v-for="category in categories"
           :category="category"
