@@ -10,7 +10,7 @@
       v-bind:key="item.id"
     />
     <v-card-actions>
-      <AddButton :category="category" />
+      <AddButton :category="category" @new-item="getSavedItem" />
       <ShowAllButton :category="category" :filteredItems="filteredItems" />
     </v-card-actions>
   </v-card>
@@ -32,6 +32,11 @@ export default {
   computed: {
     filteredItems() {
       return this.items.filter(a => a.category == this.category);
+    }
+  },
+  methods: {
+    getSavedItem(category) {
+      this.$emit("new-item", category);
     }
   }
 };

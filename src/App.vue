@@ -9,6 +9,7 @@
           v-for="category in categories"
           :category="category"
           :items="items"
+          @new-item="addItem"
         />
       </v-container>
     </v-content>
@@ -41,6 +42,24 @@ export default {
     },
     updateCategory(currCategory) {
       this.chosenFilter = currCategory;
+    },
+    generateRandomId() {
+      let randomId = "";
+      const characters = "abcdefghijklmnopqrstuvwxyz0123456789";
+      const idLength = 24;
+      for (let i = 0; i < idLength; i++) {
+        let randomChar =
+          characters[Math.floor(Math.random() * characters.length)];
+        randomId += randomChar;
+      }
+      return randomId;
+    },
+    addItem(category) {
+      let newItem = {
+        id: this.generateRandomId(),
+        category: category
+      };
+      this.items.push(newItem);
     }
   },
   created() {
