@@ -5,6 +5,12 @@
       :categories="categories"
       @category-filter="updateCategory"
     />
+    <v-alert v-show="this.itemCreated" type="success">
+      New item
+      <span class="text-capitalize">{{ this.newItem.category }}</span>
+      #{{ this.newItem.id }}
+      successfully created.
+    </v-alert>
     <v-content class="d-flex align-center">
       <v-container
         class="d-flex flex-column flex-sm-row justify-space-around align-center"
@@ -37,7 +43,9 @@ export default {
     return {
       items,
       chosenFilter: " ",
-      categories: []
+      categories: [],
+      newItem: {},
+      itemCreated: false
     };
   },
   methods: {
@@ -65,7 +73,9 @@ export default {
         id: this.generateRandomId(),
         category: category
       };
-      this.items.push(newItem);
+      this.newItem = newItem;
+      this.items.push(this.newItem);
+      this.itemCreated = true;
     }
   },
   created() {

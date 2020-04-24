@@ -40,7 +40,7 @@
             tile
             outlined
             @click="newItemSaved"
-            >Save</v-btn
+            >Create</v-btn
           >
         </v-card-actions>
       </v-card>
