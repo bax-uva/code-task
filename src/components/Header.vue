@@ -7,7 +7,7 @@
       class="ma-4"
       alt="Logo"
       contain
-      src="https://source.unsplash.com/kxkXVlNL7H0/1000x1000"
+      src="../assets/logo.png"
       width="50"
       style="border-radius: 100%;"
     />
