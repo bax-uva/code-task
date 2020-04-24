@@ -2,7 +2,14 @@
   <v-row justify="center">
     <v-dialog v-model="dialog" scrollable>
       <template v-slot:activator="{ on }">
-        <v-btn class="ma-2" v-on="on" tile outlined>Add {{ category }}</v-btn>
+        <v-btn
+          color="purple accent-3"
+          class="ma-4 pa-2 text-capitalize body-1"
+          v-on="on"
+          tile
+          outlined
+          >Add {{ category }}</v-btn
+        >
       </template>
       <v-card>
         <v-card-title>
@@ -12,17 +19,29 @@
           <v-container>
             <v-row>
               <v-col cols="12" sm="6" md="4">
-                <v-text-field label="Description" required></v-text-field>
+                <p class="body-1">Create new item?</p>
               </v-col>
             </v-row>
           </v-container>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="blue darken-1" text @click="dialog = false"
+          <v-btn
+            color="purple accent-3"
+            class="body-1"
+            tile
+            outlined
+            @click="dialog = false"
             >Close</v-btn
           >
-          <v-btn color="blue darken-1" text @click="newItemSaved">Save</v-btn>
+          <v-btn
+            color="purple accent-3"
+            class="body-1"
+            tile
+            outlined
+            @click="newItemSaved"
+            >Save</v-btn
+          >
         </v-card-actions>
       </v-card>
     </v-dialog>

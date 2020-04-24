@@ -1,8 +1,10 @@
 <template>
-  <v-app>
+  <v-app class="d-flex">
     <Header :categories="categories" @category-filter="updateCategory" />
     <v-content class="d-flex align-center">
-      <v-container class="d-flex justify-space-around align-center">
+      <v-container
+        class="d-flex flex-column flex-sm-row justify-space-around align-center"
+      >
         <Transactions
           v-show="chosenFilter == category || chosenFilter == 'all'"
           v-bind:key="category"

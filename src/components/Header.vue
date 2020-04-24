@@ -1,16 +1,18 @@
 <template>
   <v-app-bar
-    flat
-    class="header ma-0 pa-0 d-flex flex-row justify-space-around align-center"
-    style="background-color: white; border-bottom: 1px solid black;"
+    color="white"
+    class="header ma-0 pa-0 d-flex justify-space-around align-center"
   >
     <v-img
+      class="ma-4"
       alt="Logo"
       contain
-      src="https://source.unsplash.com/kxkXVlNL7H0/1000"
-      width="40"
+      src="https://source.unsplash.com/kxkXVlNL7H0/1000x1000"
+      width="50"
+      style="border-radius: 100%;"
     />
-    <v-container class="filter-menu d-flex justify-center pa-0">
+
+    <div class="filter-menu d-flex pa-0 ma-4">
       <FilterButton :title="'all'" @category-clicked="updateCategory" />
       <FilterButton
         v-for="category in categories"
@@ -18,7 +20,7 @@
         :title="category"
         @category-clicked="updateCategory"
       />
-    </v-container>
+    </div>
     <Search />
   </v-app-bar>
 </template>

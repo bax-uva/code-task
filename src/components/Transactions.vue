@@ -1,8 +1,7 @@
 <template>
-  <v-card style="border:1px solid black;" tile outlined>
-    <v-card-title style="border-bottom:1px solid black;">{{
-      category
-    }}</v-card-title>
+  <v-card elevation="10" min-width="250" tile outlined class="ma-4">
+    <v-card-title class="text-capitalize title">{{ category }}</v-card-title>
+    <v-divider></v-divider>
     <ListItem
       v-for="item in filteredItems.slice(0, 3)"
       :item="item.id"

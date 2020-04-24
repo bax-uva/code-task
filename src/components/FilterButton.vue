@@ -1,5 +1,10 @@
 <template>
-  <v-btn @click="categoryClicked" class="pa-0 ma-0" tile outlined
+  <v-btn
+    outlined
+    color="purple accent-3"
+    tile
+    @click="categoryClicked"
+    class="pa-2 ma-0 text-capitalize body-1"
     >{{ title }}
   </v-btn>
 </template>
