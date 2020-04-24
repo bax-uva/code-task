@@ -13,8 +13,13 @@
     />
 
     <div class="filter-menu d-flex pa-0 ma-4">
-      <FilterButton :title="'all'" @category-clicked="updateCategory" />
       <FilterButton
+        :title="'all'"
+        @category-clicked="updateCategory"
+        :chosenFilter="chosenFilter"
+      />
+      <FilterButton
+        :chosenFilter="chosenFilter"
         v-for="category in categories"
         v-bind:key="category"
         :title="category"
@@ -34,7 +39,7 @@ export default {
     FilterButton,
     Search
   },
-  props: ["categories"],
+  props: ["categories", "chosenFilter"],
   methods: {
     updateCategory(category) {
       this.$emit("category-filter", category);

@@ -1,6 +1,6 @@
 <template>
   <v-btn
-    outlined
+    :outlined="chosenFilter !== title"
     color="purple accent-3"
     tile
     @click="categoryClicked"
@@ -12,7 +12,7 @@
 <script>
 export default {
   name: "FilterButton",
-  props: ["title"],
+  props: ["title", "chosenFilter"],
   methods: {
     categoryClicked() {
       this.$emit("category-clicked", this.title);

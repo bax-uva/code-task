@@ -1,6 +1,10 @@
 <template>
   <v-app class="d-flex">
-    <Header :categories="categories" @category-filter="updateCategory" />
+    <Header
+      :chosenFilter="chosenFilter"
+      :categories="categories"
+      @category-filter="updateCategory"
+    />
     <v-content class="d-flex align-center">
       <v-container
         class="d-flex flex-column flex-sm-row justify-space-around align-center"
