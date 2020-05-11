@@ -59,8 +59,8 @@ export default {
     },
     generateRandomId() {
       let randomId = "";
-      const characters = "abcdefghijklmnopqrstuvwxyz0123456789";
-      const idLength = 24;
+      const characters = "0123456789";
+      const idLength = 5;
       for (let i = 0; i < idLength; i++) {
         let randomChar =
           characters[Math.floor(Math.random() * characters.length)];

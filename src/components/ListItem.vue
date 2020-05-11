@@ -3,7 +3,7 @@
     <v-list-item-content>
       <v-list-item-title class="body-1"
         ><span class="text-capitalize">{{ catSingular }}</span> #{{
-          item.substr(item.length - 5, item.length)
+          item
         }}</v-list-item-title
       >
     </v-list-item-content>
